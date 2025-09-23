@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CEDex: Cross-Embodiment Dexterous Grasp Generation</title>
+    <title>CEDex: Cross-Embodiment Dexterous Grasp Generation from Human Contact Representations</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body { margin: 20px; }
+        body {
+            margin: 20px;
+            background-color: white; /* Set background color to white */
+            color: black; /* Set text color to black */
+        }
         .hero { margin-bottom: 20px; }
         .section { margin-top: 20px; }
-        h2 {margin-top: 20px;}
+        h2 { margin-top: 20px; }
         .video-container { display: flex; justify-content: center; }
         video { border-radius: 8px; }
+        .has-text-centered { text-align: center; }
     </style>
 </head>
 <body>
@@ -21,17 +26,21 @@
     <section class="hero is-info">
         <div class="hero-body">
             <div class="container has-text-centered">
-                <h1 class="title">CEDex: Cross-Embodiment Dexterous Grasp Generation</h1>
-                <h2 class="subtitle">From Human-like Contact Representations</h2>
+                <h1 class="title">CEDex: Cross-Embodiment Dexterous Grasp Generation from Human-like Contact Representations</h1>
             </div>
         </div>
+    </section>
+
+    <!-- Teaser Image Section -->
+    <section class="section has-text-centered">
+        <img src="figs/teaser.gif" alt="Teaser Image" width="50%">
     </section>
 
     <!-- Abstract Section -->
     <section class="section">
         <div class="container">
             <h2 class="title is-3">Abstract</h2>
-            <p>Cross-embodiment dexterous grasp synthesis refers to adaptively generating and optimizing grasps for various robotic hands with different morphologies... (insert your abstract here).</p>
+            <p>Cross-embodiment dexterous grasp synthesis refers to adaptively generating and optimizing grasps for various robotic hands with different morphologies. This capability is crucial for achieving versatile robotic manipulation in diverse environments and requires substantial amounts of reliable and diverse grasp data for effective model training and robust generalization. However, existing approaches either rely on physics-based optimization that lacks human-like kinematic understanding or require extensive manual data collection processes that are limited to anthropomorphic structures. In this paper, we propose <strong>CEDex</strong>, a novel cross-embodiment dexterous grasp synthesis method that bridges human grasping kinematics and robot kinematics by aligning robot kinematic models with generated human-like contact representations. Given an object's point cloud and an arbitrary robotic hand model, CEDex first generates human-like contact representations using a Conditional Variational Auto-encoder pretrained on human contact data. It then performs kinematic human contact alignment through topological merging to consolidate multiple human hand parts into unified robot components, followed by a signed distance field-based grasp optimization with physics-aware constraints. Using CEDex, we construct the largest cross-embodiment grasp dataset to date, comprising <strong>500K</strong> objects across four gripper types with <strong>20M</strong> total grasps. Extensive experiments show that CEDex outperforms state-of-the-art approaches, and our dataset benefits cross-embodiment grasp learning with high-quality diverse grasps.</p>
         </div>
     </section>
 
@@ -40,7 +49,7 @@
         <h2 class="title is-3">Pipeline Overview</h2>
         <figure>
             <img src="figs/pipeline.gif" alt="CEDex Pipeline" width="80%">
-            <figcaption style="font-style: normal; font-size: 0.95em;">The cross-embodiment dexterous grasp synthesis pipeline of CEDex.</figcaption>
+            <figcaption style="font-style: normal; font-size: 0.95em;">*The cross-embodiment dexterous grasp synthesis pipeline of our CEDex. Given a point cloud of an object and a robotic hand as input, CEDex first generates human-like contact representations using a CVAE model pretrained on human contact data. The kinematic human contact alignment component then performs topological merging to consolidate multiple human hand parts into unified robot components according to the robot's kinematic configuration, followed by a SDF-based grasp optimization with physics-aware constraints to generate robust and diverse grasps with human-like kinematic understanding.*</figcaption>
         </figure>
     </section>
 
@@ -48,10 +57,10 @@
     <section class="section">
         <div class="container">
             <h2 class="title is-3">CEDex Dataset</h2>
-            <p>The CEDex dataset consists of two object sets:</p>
+            <p>Using CEDex, we constructed the largest cross-embodiment dexterous grasp dataset to the best of our knowledge, which contains <strong>500K</strong> objects and four types of grippers, with more than <strong>20M</strong> grasps in total. Our CEDex dataset consists of two object sets:</p>
             <ul>
-                <li><strong>Real-World Object Set:</strong> Contains objects from the ContactDB and YCB datasets with 200K grasps.</li>
-                <li><strong>Synthesis Object Set:</strong> Includes over 500K synthesized objects, generating 20M grasps in total.</li>
+                <li><strong>Real-World Object Set:</strong> We employ objects from <a href="https://contactdb.cc.gatech.edu/">ContactDB</a> and the <a href="https://www.ycbbenchmarks.com/">YCB</a> datasets, and refer to <a href="https://github.com/tengyu-liu/GenDexGrasp">GenDexGrasp</a> to filter objects suitable for robot grasping. We generate <strong>200K</strong> grasps for this subset.</li>
+                <li><strong>Synthesis Object Set:</strong> To enlarge the dataset scale, we employ synthesized objects from the <a href="https://objaverse.allenai.org/">Objaverse</a> dataset, referring to <a href="https://github.com/zdchan/GraspXL/">GraspXL</a> to have <strong>500K+</strong> objects and generate <strong>20M</strong> grasps.</li>
             </ul>
             <figure>
                 <img src="figs/contactdb_ycb.gif" alt="Real World Dataset" width="80%">
