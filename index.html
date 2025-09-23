@@ -14,26 +14,40 @@
         }
         .hero { margin-bottom: 20px; }
         .section { margin-top: 20px; }
-        h2 { margin-top: 20px; }
+        h2 {
+            margin-top: 20px;
+            text-align: center; /* Center section titles */
+            font-weight: bold;  /* Make section titles bold */
+            color: black; /* Section titles in black */
+        }
         .video-container { display: flex; justify-content: center; }
         video { border-radius: 8px; }
         .has-text-centered { text-align: center; }
+        .title { text-align: center; }
     </style>
 </head>
 <body>
 
     <!-- Title Section -->
-    <section class="hero is-info">
+    <section class="hero">
         <div class="hero-body">
-            <div class="container has-text-centered">
-                <h1 class="title">CEDex: Cross-Embodiment Dexterous Grasp Generation from Human-like Contact Representations</h1>
+            <div class="container">
+                <h1 class="title">CEDex: Cross-Embodiment Dexterous Grasp Generation <br> from Human-like Contact Representations</h1>
             </div>
         </div>
     </section>
 
-    <!-- Teaser Image Section -->
-    <section class="section has-text-centered">
-        <img src="figs/teaser.gif" alt="Teaser Image" width="50%">
+    <!-- Demo Video Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="title is-3">Demo Video</h2>
+            <div class="video-container">
+                <video controls width="80%">
+                    <source src="figs/demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
     </section>
 
     <!-- Abstract Section -->
@@ -57,19 +71,33 @@
     <section class="section">
         <div class="container">
             <h2 class="title is-3">CEDex Dataset</h2>
-            <p>Using CEDex, we constructed the largest cross-embodiment dexterous grasp dataset to the best of our knowledge, which contains <strong>500K</strong> objects and four types of grippers, with more than <strong>20M</strong> grasps in total. Our CEDex dataset consists of two object sets:</p>
+            <p>
+                Using CEDex, we constructed the largest cross-embodiment dexterous grasp dataset to the best of our knowledge, which contains 
+                <strong>500K</strong> objects and four types of grippers, with more than <strong>20M</strong> grasps in total. Our CEDex dataset consists of two object sets:
+            </p>
             <ul>
-                <li><strong>Real-World Object Set:</strong> We employ objects from <a href="https://contactdb.cc.gatech.edu/">ContactDB</a> and the <a href="https://www.ycbbenchmarks.com/">YCB</a> datasets, and refer to <a href="https://github.com/tengyu-liu/GenDexGrasp">GenDexGrasp</a> to filter objects suitable for robot grasping. We generate <strong>200K</strong> grasps for this subset.</li>
-                <li><strong>Synthesis Object Set:</strong> To enlarge the dataset scale, we employ synthesized objects from the <a href="https://objaverse.allenai.org/">Objaverse</a> dataset, referring to <a href="https://github.com/zdchan/GraspXL/">GraspXL</a> to have <strong>500K+</strong> objects and generate <strong>20M</strong> grasps.</li>
+                <li>
+                    <strong>Real-World Object Set:</strong> We employ objects from 
+                    <a href="https://contactdb.cc.gatech.edu/">ContactDB</a> and the 
+                    <a href="https://www.ycbbenchmarks.com/">YCB</a> datasets, and refer to 
+                    <a href="https://github.com/tengyu-liu/GenDexGrasp">GenDexGrasp</a> to filter objects suitable for robot grasping. 
+                    We generate <strong>200K</strong> grasps for this subset.
+                </li>
+                <figure>
+                    <img src="figs/contactdb_ycb.gif" alt="Real World Dataset" width="80%">
+                    <figcaption style="font-style: normal; font-size: 0.95em;">Objects from the Real-World Object Set.</figcaption>
+                </figure>
+    
+                <li>
+                    <strong>Synthesis Object Set:</strong> To enlarge the dataset scale, we employ synthesized objects from the 
+                    <a href="https://objaverse.allenai.org/">Objaverse</a> dataset, referring to 
+                    <a href="https://github.com/zdchan/GraspXL/">GraspXL</a> to have <strong>500K+</strong> objects and generate <strong>20M</strong> grasps.
+                </li>
+                <figure>
+                    <img src="figs/objaverse.gif" alt="Synthesis Dataset" width="80%">
+                    <figcaption style="font-style: normal; font-size: 0.95em;">Objects from the Synthesis Object Set.</figcaption>
+                </figure>
             </ul>
-            <figure>
-                <img src="figs/contactdb_ycb.gif" alt="Real World Dataset" width="80%">
-                <figcaption style="font-style: normal; font-size: 0.95em;">Objects from the Real-World Object Set.</figcaption>
-            </figure>
-            <figure>
-                <img src="figs/objaverse.gif" alt="Synthesis Dataset" width="80%">
-                <figcaption style="font-style: normal; font-size: 0.95em;">Objects from the Synthesis Object Set.</figcaption>
-            </figure>
         </div>
     </section>
 
@@ -80,19 +108,6 @@
             <img src="figs/rw.gif" alt="Real World Validation" width="80%">
             <figcaption style="font-style: normal; font-size: 0.95em;">Validation of grasp performance in real-world scenarios.</figcaption>
         </figure>
-    </section>
-
-    <!-- Demo Video Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="title is-3">Demo Video</h2>
-            <div class="video-container">
-                <video controls width="80%">
-                    <source src="figs/demo.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </div>
     </section>
 
 </body>
