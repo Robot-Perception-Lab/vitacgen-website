@@ -10,13 +10,13 @@
         body {
             margin: 20px;
             background-color: white;
-            color: black; /* Set text color to black */
+            color: black; /* Set default text color to black */
         }
         .hero { margin-bottom: 20px; }
         .section { margin-top: 20px; }
         h1 {
-            color: black; /* Make the main title text black */
-            font-size: 2.5em; /* Increased font size for main title */
+            font-size: 5em; /* Increased font size for main title */
+            color: black; /* Title color */
         }
         h2 {
             margin-top: 20px;
@@ -47,24 +47,23 @@
         </div>
     </section>
 
-    <!-- Abstract Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="title is-3">Abstract</h2>
-            <p>Cross-embodiment dexterous grasp synthesis refers to adaptively generating and optimizing grasps for various robotic hands with different morphologies. This capability is crucial for achieving versatile robotic manipulation in diverse environments and requires substantial amounts of reliable and diverse grasp data for effective model training and robust generalization. However, existing approaches either rely on physics-based optimization that lacks human-like kinematic understanding or require extensive manual data collection processes that are limited to anthropomorphic structures. In this paper, we propose <strong>CEDex</strong>, a novel cross-embodiment dexterous grasp synthesis method that bridges human grasping kinematics and robot kinematics by aligning robot kinematic models with generated human-like contact representations. Given an object's point cloud and an arbitrary robotic hand model, CEDex first generates human-like contact representations using a Conditional Variational Auto-encoder pretrained on human contact data. It then performs kinematic human contact alignment through topological merging to consolidate multiple human hand parts into unified robot components, followed by a signed distance field-based grasp optimization with physics-aware constraints. Using CEDex, we construct the largest cross-embodiment grasp dataset to date, comprising <strong>500K</strong> objects across four gripper types with <strong>20M</strong> total grasps. Extensive experiments show that CEDex outperforms state-of-the-art approaches, and our dataset benefits cross-embodiment grasp learning with high-quality diverse grasps.</p>
-        </div>
-    </section>
-
     <!-- Demo Video Section -->
     <section class="section">
         <div class="container">
-            <h2 class="title is-3">Demo</h2>
             <div class="video-container">
                 <video controls width="80%">
                     <source src="figs/demo.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
+        </div>
+    </section>
+    
+    <!-- Abstract Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="title is-3">Abstract</h2>
+            <p>Cross-embodiment dexterous grasp synthesis refers to adaptively generating and optimizing grasps for various robotic hands with different morphologies. This capability is crucial for achieving versatile robotic manipulation in diverse environments and requires substantial amounts of reliable and diverse grasp data for effective model training and robust generalization. However, existing approaches either rely on physics-based optimization that lacks human-like kinematic understanding or require extensive manual data collection processes that are limited to anthropomorphic structures. In this paper, we propose <strong>CEDex</strong>, a novel cross-embodiment dexterous grasp synthesis method that bridges human grasping kinematics and robot kinematics by aligning robot kinematic models with generated human-like contact representations. Given an object's point cloud and an arbitrary robotic hand model, CEDex first generates human-like contact representations using a Conditional Variational Auto-encoder pretrained on human contact data. It then performs kinematic human contact alignment through topological merging to consolidate multiple human hand parts into unified robot components, followed by a signed distance field-based grasp optimization with physics-aware constraints. Using CEDex, we construct the largest cross-embodiment grasp dataset to date, comprising <strong>500K</strong> objects across four gripper types with <strong>20M</strong> total grasps. Extensive experiments show that CEDex outperforms state-of-the-art approaches, and our dataset benefits cross-embodiment grasp learning with high-quality diverse grasps.</p>
         </div>
     </section>
 
