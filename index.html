@@ -26,7 +26,7 @@
             color: black !important;
         }
         p {
-            max-width: 700px; /* Set max width for paragraphs */
+            max-width: 800px; /* Set max width for paragraphs */
             margin: 0 auto; /* Center the paragraphs */
             text-align: justify; /* Justify text in abstract */
             font-size: 1em;
@@ -37,7 +37,7 @@
         .title { text-align: center; }
         .section.has-text-centered { text-align: center; }
         figure {
-            max-width: 700px; /* Set width for figures to match abstract */
+            max-width: 800px; /* Set width for figures to match abstract */
             margin: 0 auto; /* Center figures */
             text-align: center;
         }
@@ -45,6 +45,9 @@
             font-style: normal;
             font-size: 1em; /* Adjust font size for figcaption */
             text-align: justify;
+        }
+        strong {
+            color: black !important; /* 确保所有的strong标签都是黑色 */
         }
     </style>
 </head>
@@ -63,7 +66,7 @@
     <section class="section">
         <div class="container">
             <div class="video-container">
-                <video controls width="70%">
+                <video controls width="100%">
                     <source src="figs/demo.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -84,7 +87,7 @@
         <div class="container has-text-centered">
             <h2 class="title is-3">Pipeline Overview</h2>
             <figure>
-                <img src="figs/pipeline.gif" alt="CEDex Pipeline" width="80%">        
+                <img src="figs/pipeline.gif" alt="CEDex Pipeline" width="100%">        
                 <figcaption style="text-align: center;">
                     The cross-embodiment dexterous grasp synthesis pipeline of our CEDex.
                 </figcaption>
@@ -99,7 +102,7 @@
             <ul>
                 <li>
                     <figure>
-                        <img src="figs/contactdb_ycb.gif" alt="Real World Dataset" width="80%">
+                        <img src="figs/contactdb_ycb.gif" alt="Real World Dataset" width="100%">
                         <figcaption style="text-align: center;">
                             Grasp Synthesis for Real-World Objects
                         </figcaption>
@@ -107,7 +110,7 @@
                 </li>
                 <li>
                     <figure>
-                        <img src="figs/objaverse.gif" alt="Synthesis Dataset" width="80%">
+                        <img src="figs/objaverse.gif" alt="Synthesis Dataset" width="100%">
                         <figcaption style="text-align: center;">
                             Grasp Synthesis for Synthesis Objects
                         </figcaption>
@@ -122,7 +125,7 @@
         <div class="container has-text-centered">
             <h2 class="title is-3">Real-World Validation</h2>
             <figure>
-                <img src="figs/rw.gif" alt="Real World Validation" width="80%">
+                <img src="figs/rw.gif" alt="Real World Validation" width="100%">
             </figure>
         </div>
     </section>
