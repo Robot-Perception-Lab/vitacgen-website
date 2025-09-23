@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=800px, initial-scale=0.8, maximum-scale=2.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CEDex: Cross-Embodiment Dexterous Grasp Generation from Human Contact Representations</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -10,20 +10,30 @@
         body {
             margin: 20px;
             background-color: white;
-            color: black;
+            color: black; /* Set text color to black */
         }
         .hero { margin-bottom: 20px; }
         .section { margin-top: 20px; }
-        h1, h2, h3, p {
-            color: black;
+        h1 {
+            color: black; /* Make the main title text black */
+            font-size: 2.5em; /* Increased font size for main title */
         }
         h2 {
             margin-top: 20px;
-            text-align: center;
+            text-align: center; /* Center section titles */
             font-weight: bold;
+            color: black; /* Explicitly set to black */
         }
+        p {
+            max-width: 600px; /* Adjust width for abstract to increase line breaks */
+            margin: 0 auto; /* Center the abstract */
+            text-align: justify; /* Justify text in abstract */
+        }
+        .video-container { display: flex; justify-content: center; }
+        video { border-radius: 8px; }
         .has-text-centered { text-align: center; }
         .title { text-align: center; }
+        .section.has-text-centered { text-align: center; }
     </style>
 </head>
 <body>
@@ -31,8 +41,8 @@
     <!-- Title Section -->
     <section class="hero">
         <div class="hero-body">
-            <div class="container has-text-centered">
-                <h1 class="title">CEDex: Cross-Embodiment Dexterous Grasp Generation <br> from Human-like Contact Representations</h1>
+            <div class="container">
+                <h1 class="title">CEDex: Cross-Embodiment Dexterous Grasp Generation from Human-like Contact Representations</h1>
             </div>
         </div>
     </section>
@@ -41,9 +51,7 @@
     <section class="section">
         <div class="container">
             <h2 class="title is-3">Abstract</h2>
-            <div class="content has-text-justified">
-                <p>Cross-embodiment dexterous grasp synthesis refers to adaptively generating and optimizing grasps for various robotic hands with different morphologies. This capability is crucial for achieving versatile robotic manipulation in diverse environments and requires substantial amounts of reliable and diverse grasp data for effective model training and robust generalization. However, existing approaches either rely on physics-based optimization that lacks human-like kinematic understanding or require extensive manual data collection processes that are limited to anthropomorphic structures. In this paper, we propose <strong>CEDex</strong>, a novel cross-embodiment dexterous grasp synthesis method that bridges human grasping kinematics and robot kinematics by aligning robot kinematic models with generated human-like contact representations. Given an object's point cloud and an arbitrary robotic hand model, CEDex first generates human-like contact representations using a Conditional Variational Auto-encoder pretrained on human contact data. It then performs kinematic human contact alignment through topological merging to consolidate multiple human hand parts into unified robot components, followed by a signed distance field-based grasp optimization with physics-aware constraints. Using CEDex, we construct the largest cross-embodiment grasp dataset to date, comprising <strong>500K</strong> objects across four gripper types with <strong>20M</strong> total grasps. Extensive experiments show that CEDex outperforms state-of-the-art approaches, and our dataset benefits cross-embodiment grasp learning with high-quality diverse grasps.</p>
-            </div>
+            <p>Cross-embodiment dexterous grasp synthesis refers to adaptively generating and optimizing grasps for various robotic hands with different morphologies. This capability is crucial for achieving versatile robotic manipulation in diverse environments and requires substantial amounts of reliable and diverse grasp data for effective model training and robust generalization. However, existing approaches either rely on physics-based optimization that lacks human-like kinematic understanding or require extensive manual data collection processes that are limited to anthropomorphic structures. In this paper, we propose <strong>CEDex</strong>, a novel cross-embodiment dexterous grasp synthesis method that bridges human grasping kinematics and robot kinematics by aligning robot kinematic models with generated human-like contact representations. Given an object's point cloud and an arbitrary robotic hand model, CEDex first generates human-like contact representations using a Conditional Variational Auto-encoder pretrained on human contact data. It then performs kinematic human contact alignment through topological merging to consolidate multiple human hand parts into unified robot components, followed by a signed distance field-based grasp optimization with physics-aware constraints. Using CEDex, we construct the largest cross-embodiment grasp dataset to date, comprising <strong>500K</strong> objects across four gripper types with <strong>20M</strong> total grasps. Extensive experiments show that CEDex outperforms state-of-the-art approaches, and our dataset benefits cross-embodiment grasp learning with high-quality diverse grasps.</p>
         </div>
     </section>
 
@@ -51,7 +59,7 @@
     <section class="section">
         <div class="container">
             <h2 class="title is-3">Demo</h2>
-            <div class="video-container has-text-centered">
+            <div class="video-container">
                 <video controls width="80%">
                     <source src="figs/demo.mp4" type="video/mp4">
                     Your browser does not support the video tag.
@@ -62,10 +70,10 @@
 
     <!-- Pipeline Overview Section -->
     <section class="section">
-        <div class="container">
+        <div class="container has-text-centered">
             <h2 class="title is-3">Pipeline Overview</h2>
             <figure>
-                <img src="figs/pipeline.gif" alt="CEDex Pipeline" width="80%">
+                <img src="figs/pipeline.gif" alt="CEDex Pipeline" width="80%">        
                 <figcaption style="font-style: normal; font-size: 0.95em; text-align: justify;">
                     The cross-embodiment dexterous grasp synthesis pipeline of our CEDex. Given a point cloud of an object and a robotic hand as input, CEDex first generates human-like contact representations using a CVAE model pretrained on human contact data. The kinematic human contact alignment component then performs topological merging to consolidate multiple human hand parts into unified robot components according to the robot's kinematic configuration, followed by a SDF-based grasp optimization with physics-aware constraints to generate robust and diverse grasps with human-like kinematic understanding.
                 </figcaption>
@@ -75,7 +83,7 @@
 
     <!-- CEDex Dataset Section -->
     <section class="section">
-        <div class="container">
+        <div class="container has-text-centered">
             <h2 class="title is-3">CEDex Dataset: 500K Objects and 20M Grasps</h2>
             <ul>
                 <li>
@@ -96,7 +104,7 @@
 
     <!-- Real-World Validation Section -->
     <section class="section">
-        <div class="container">
+        <div class="container has-text-centered">
             <h2 class="title is-3">Real-World Validation</h2>
             <figure>
                 <img src="figs/rw.gif" alt="Real World Validation" width="80%">
