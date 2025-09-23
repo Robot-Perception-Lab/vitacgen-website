@@ -15,16 +15,18 @@
         .hero { margin-bottom: 20px; }
         .section { margin-top: 20px; }
         h1 {
-            font-size: 100em; /* Increased font size for main title */
+            font-size: 2.5em; /* Adjust this value as needed */
+            color: black; /* Ensure title color is black */
         }
         h2 {
             margin-top: 20px;
             text-align: center; /* Center section titles */
             font-weight: bold;
+            color: black; /* Ensure section titles are also black */
         }
         p {
-            max-width: 600px; /* Adjust width for abstract to increase line breaks */
-            margin: 0 auto; /* Center the abstract */
+            max-width: 800px; /* Set max width for paragraphs */
+            margin: 0 auto; /* Center the paragraphs */
             text-align: justify; /* Justify text in abstract */
         }
         .video-container { display: flex; justify-content: center; }
@@ -32,6 +34,16 @@
         .has-text-centered { text-align: center; }
         .title { text-align: center; }
         .section.has-text-centered { text-align: center; }
+        figure {
+            max-width: 800px; /* Set width for figures to match abstract */
+            margin: 0 auto; /* Center figures */
+            text-align: center;
+        }
+        figcaption {
+            font-style: normal;
+            font-size: 0.95em; /* Adjust font size for figcaption */
+            text-align: justify;
+        }
     </style>
 </head>
 <body>
@@ -49,7 +61,7 @@
     <section class="section">
         <div class="container">
             <div class="video-container">
-                <video controls width="80%">
+                <video controls width="70%">
                     <source src="figs/demo.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -71,7 +83,7 @@
             <h2 class="title is-3">Pipeline Overview</h2>
             <figure>
                 <img src="figs/pipeline.gif" alt="CEDex Pipeline" width="80%">        
-                <figcaption style="font-style: normal; font-size: 0.95em; text-align: justify;">
+                <figcaption>
                     The cross-embodiment dexterous grasp synthesis pipeline of our CEDex. Given a point cloud of an object and a robotic hand as input, CEDex first generates human-like contact representations using a CVAE model pretrained on human contact data. The kinematic human contact alignment component then performs topological merging to consolidate multiple human hand parts into unified robot components according to the robot's kinematic configuration, followed by a SDF-based grasp optimization with physics-aware constraints to generate robust and diverse grasps with human-like kinematic understanding.
                 </figcaption>
             </figure>
@@ -84,15 +96,19 @@
             <h2 class="title is-3">CEDex Dataset: 500K Objects and 20M Grasps</h2>
             <ul>
                 <li>
-                    <strong>Grasp Synthesis for Real-World Objects:</strong>
                     <figure>
                         <img src="figs/contactdb_ycb.gif" alt="Real World Dataset" width="80%">
+                        <figcaption>
+                            Grasp Synthesis for Real-World Objects
+                        </figcaption>
                     </figure>
                 </li>
                 <li>
-                    <strong>Grasp Synthesis for Synthesis Objects:</strong>
                     <figure>
                         <img src="figs/objaverse.gif" alt="Synthesis Dataset" width="80%">
+                        <figcaption>
+                            Grasp Synthesis for Synthesis Objects
+                        </figcaption>
                     </figure>
                 </li>
             </ul>
@@ -105,6 +121,9 @@
             <h2 class="title is-3">Real-World Validation</h2>
             <figure>
                 <img src="figs/rw.gif" alt="Real World Validation" width="80%">
+                <figcaption>
+                    Real-World Validation Results
+                </figcaption>
             </figure>
         </div>
     </section>
