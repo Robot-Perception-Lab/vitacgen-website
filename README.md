@@ -1,5 +1,5 @@
-# $\mathcal{D(R,O)}$ Grasp Website
+CEDex Website
 
-[https://nus-lins-lab.github.io/drograspweb/](https://nus-lins-lab.github.io/drograspweb/)
+[https://georgewuzy.github.io/cedex-website/](https://georgewuzy.github.io/cedex-website/)
 
 This website is designed based on [Nerfies](https://github.com/nerfies/nerfies.github.io).
