@@ -63,40 +63,27 @@
         <h2 class="title is-3">Pipeline Overview</h2>
         <figure>
             <img src="figs/pipeline.gif" alt="CEDex Pipeline" width="80%">
-            <figcaption style="font-style: normal; font-size: 0.95em;">*The cross-embodiment dexterous grasp synthesis pipeline of our CEDex. Given a point cloud of an object and a robotic hand as input, CEDex first generates human-like contact representations using a CVAE model pretrained on human contact data. The kinematic human contact alignment component then performs topological merging to consolidate multiple human hand parts into unified robot components according to the robot's kinematic configuration, followed by a SDF-based grasp optimization with physics-aware constraints to generate robust and diverse grasps with human-like kinematic understanding.*</figcaption>
+            <figcaption style="font-style: normal; font-size: 0.95em;">The cross-embodiment dexterous grasp synthesis pipeline of our CEDex. Given a point cloud of an object and a robotic hand as input, CEDex first generates human-like contact representations using a CVAE model pretrained on human contact data. The kinematic human contact alignment component then performs topological merging to consolidate multiple human hand parts into unified robot components according to the robot's kinematic configuration, followed by a SDF-based grasp optimization with physics-aware constraints to generate robust and diverse grasps with human-like kinematic understanding.</figcaption>
         </figure>
     </section>
 
     <!-- CEDex Dataset Section -->
     <section class="section">
         <div class="container">
-            <h2 class="title is-3">CEDex Dataset</h2>
-            <p>
-                Using CEDex, we constructed the largest cross-embodiment dexterous grasp dataset to the best of our knowledge, which contains 
-                <strong>500K</strong> objects and four types of grippers, with more than <strong>20M</strong> grasps in total. Our CEDex dataset consists of two object sets:
-            </p>
+            <h2 class="title is-3">CEDex Dataset: <strong>500K</strong> objects and four types of grippers, with more than <strong>20M</strong> grasps in total</h2>
             <ul>
                 <li>
-                    <strong>Real-World Object Set:</strong> We employ objects from 
-                    <a href="https://contactdb.cc.gatech.edu/">ContactDB</a> and the 
-                    <a href="https://www.ycbbenchmarks.com/">YCB</a> datasets, and refer to 
-                    <a href="https://github.com/tengyu-liu/GenDexGrasp">GenDexGrasp</a> to filter objects suitable for robot grasping. 
-                    We generate <strong>200K</strong> grasps for this subset.
+                    <strong>Grasp Synthesis for Real-World Objects:</strong>
+                    <figure>
+                        <img src="figs/contactdb_ycb.gif" alt="Real World Dataset" width="80%">
+                    </figure>
                 </li>
-                <figure>
-                    <img src="figs/contactdb_ycb.gif" alt="Real World Dataset" width="80%">
-                    <figcaption style="font-style: normal; font-size: 0.95em;">Objects from the Real-World Object Set.</figcaption>
-                </figure>
-    
                 <li>
-                    <strong>Synthesis Object Set:</strong> To enlarge the dataset scale, we employ synthesized objects from the 
-                    <a href="https://objaverse.allenai.org/">Objaverse</a> dataset, referring to 
-                    <a href="https://github.com/zdchan/GraspXL/">GraspXL</a> to have <strong>500K+</strong> objects and generate <strong>20M</strong> grasps.
+                    <strong>Grasp Synthesis for Synthesis Objects:</strong>
+                    <figure>
+                        <img src="figs/objaverse.gif" alt="Synthesis Dataset" width="80%">
+                    </figure>
                 </li>
-                <figure>
-                    <img src="figs/objaverse.gif" alt="Synthesis Dataset" width="80%">
-                    <figcaption style="font-style: normal; font-size: 0.95em;">Objects from the Synthesis Object Set.</figcaption>
-                </figure>
             </ul>
         </div>
     </section>
