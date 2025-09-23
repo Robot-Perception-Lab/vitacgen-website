@@ -10,12 +10,12 @@
         body {
             margin: 20px;
             background-color: white;
-            color: black; /* Set default text color to black */
+            color: black !important;
         }
         .hero { margin-bottom: 20px; }
         .section { margin-top: 20px; }
         h1 {
-            font-size: 3em !important;
+            font-size: 2.5em !important;
             color: black !important;
         }
         h2 {
@@ -28,7 +28,7 @@
             max-width: 800px; /* Set max width for paragraphs */
             margin: 0 auto; /* Center the paragraphs */
             text-align: justify; /* Justify text in abstract */
-            font-size: 0.8em;
+            font-size: 0.85em;
         }
         .video-container { display: flex; justify-content: center; }
         video { border-radius: 8px; }
@@ -36,13 +36,13 @@
         .title { text-align: center; }
         .section.has-text-centered { text-align: center; }
         figure {
-            max-width: 800px; /* Set width for figures to match abstract */
+            max-width: 600px; /* Set width for figures to match abstract */
             margin: 0 auto; /* Center figures */
             text-align: center;
         }
         figcaption {
             font-style: normal;
-            font-size: 0.8em; /* Adjust font size for figcaption */
+            font-size: 0.85em; /* Adjust font size for figcaption */
             text-align: justify;
         }
     </style>
@@ -84,8 +84,8 @@
             <h2 class="title is-3">Pipeline Overview</h2>
             <figure>
                 <img src="figs/pipeline.gif" alt="CEDex Pipeline" width="80%">        
-                <figcaption>
-                    The cross-embodiment dexterous grasp synthesis pipeline of our CEDex. Given a point cloud of an object and a robotic hand as input, CEDex first generates human-like contact representations using a CVAE model pretrained on human contact data. The kinematic human contact alignment component then performs topological merging to consolidate multiple human hand parts into unified robot components according to the robot's kinematic configuration, followed by a SDF-based grasp optimization with physics-aware constraints to generate robust and diverse grasps with human-like kinematic understanding.
+                <figcaption style="text-align: center;">
+                    The cross-embodiment dexterous grasp synthesis pipeline of our CEDex.
                 </figcaption>
             </figure>
         </div>
