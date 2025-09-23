@@ -14,12 +14,16 @@
         }
         .hero { margin-bottom: 20px; }
         .section { margin-top: 20px; }
+        .title-container {
+            max-width: 400px; /* 设置标题容器的最大宽度 */
+            margin: 0 auto; /* 居中 */
+            text-align: center; /* 文本居中 */
+        }
         h1 {
             font-size: 2.5em !important; /* 字体大小 */
             color: black !important; /* 颜色 */
-            /* font-weight: normal; /* 取消加粗 */ */
-            width: 500px !important; /* 字体大小 */
-            margin: 0 auto; /* 可选：居中 */
+            font-weight: normal; /* 取消加粗 */
+            margin: 0; /* 清除默认的外边距 */
         }
         h2 {
             font-size: 2em !important;
@@ -59,7 +63,7 @@
     <!-- Title Section -->
     <section class="hero">
         <div class="hero-body">
-            <div class="container">
+            <div class="container title-container"> <!-- 修改这里 -->
                 <h1 class="title">CEDex: Cross-Embodiment Dexterous Grasp Generation from Human-like Contact Representations</h1>
             </div>
         </div>
