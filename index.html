@@ -1,215 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CEDex: Cross-Embodiment Dexterous Grasp Generation at Scale from Human Contact Representations</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            margin: 20px;
-            background-color: white;
-            color: black !important;
-        }
-        .hero { margin-bottom: 0px; }
-        .section { 
-            margin-top: 0px; /* 缩小距离 */
-            margin-bottom: 0px; /* 缩小距离 */
-        }
-        .title-container {
-            width: 1100px; /* 设置标题容器的最大宽度 */
-            margin: 0 auto; /* 居中 */
-            text-align: center; /* 文本居中 */
-        }
-        h1 {
-            color: black !important; /* 颜色 */
-            margin: 0; /* 清除默认的外边距 */
-            font-size: 3em !important; /* 字体大小 */
-            font-weight: bold !important; /* 字体大小 */
-        }
-        h2 {
-            font-size: 2em !important;
-            margin-top: 20px;
-            text-align: center; /* Center section titles */
-            font-weight: bold;
-            color: black !important;
-        }
-        p {
-            max-width: 800px; /* Set max width for paragraphs */
-            margin: 0 auto; /* Center the paragraphs */
-            text-align: justify; /* Justify text in abstract */
-            font-size: 1em;
-        }
-        .video-container { display: flex; justify-content: center; }
-        video { border-radius: 8px; }
-        .has-text-centered { text-align: center; }
-        .title { text-align: center; }
-        .section.has-text-centered { text-align: center; }
-        figure {
-            max-width: 800px; /* Set width for figures to match abstract */
-            margin: 0 auto; /* Center figures */
-            text-align: center;
-        }
-        video {
-            border: 8px solid lightblue; /* 添加淡蓝色边框 */
-            border-radius: 8px; /* 圆角 */
-            padding: 5px; /* 内边距 */
-        }
-        figcaption {
-            font-style: normal;
-            font-size: 1em; /* Adjust font size for figcaption */
-            text-align: justify;
-        }
-        strong {
-            color: black !important; /* 确保所有的strong标签都是黑色 */
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CEDex: Cross-Embodiment Dexterous Grasp Generation at Scale from Human Contact Representations</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* 基础样式 */
+    body {
+      margin: 20px;
+      background-color: white;
+      color: black !important;
+    }
+    .hero { margin-bottom: 0px; }
+    .section {
+      margin-top: 0px;     /* 缩小距离 */
+      margin-bottom: 0px;  /* 缩小距离 */
+    }
+
+    /* 统一固定宽度容器：默认 800px，可通过 --w 覆盖 */
+    .fixed-container {
+      width: min(100%, var(--w, 800px));
+      margin: 0 auto;
+    }
+    .centered { text-align: center; }
+
+    /* 标题样式 */
+    h1 {
+      color: black !important;
+      margin: 0;
+      font-size: 3em !important;
+      font-weight: bold !important;
+      text-align: center;
+    }
+    h2 {
+      font-size: 2em !important;
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+      color: black !important;
+    }
+
+    /* 文本与媒体 */
+    p {
+      margin: 0 auto;
+      text-align: justify;
+      font-size: 1em;
+    }
+    figure {
+      margin: 0 auto;
+      text-align: center;
+    }
+    figcaption {
+      font-style: normal;
+      font-size: 1em;
+      text-align: justify;
+    }
+    img, video {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* 视频边框样式与居中容器 */
+    .video-container { display: flex; justify-content: center; }
+    video {
+      border: 8px solid lightblue;
+      border-radius: 8px;
+      padding: 5px;
+    }
+
+    strong { color: black !important; }
+  </style>
 </head>
 <body>
 
-    <!-- Title Section -->
-    <section class="hero" style="margin-bottom: -60px;">
-        <div class="hero-body">
-            <div class="container title-container">
-                <h1 class="title">
-                    CEDex: <span style="color: #C00000;">Cross-Embodiment</span> Dexterous Grasp Generation at Scale from <span style="color: #0070C0;">Human-like</span> <br> <span style="color: #0070C0;">Contact</span> Representations
-                </h1>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Authors Section -->
-    <section class="section" style="margin-bottom: -60px;"> <!-- 设置负边距 -->
-        <div class="container authors has-text-centered">
-            <div class="is-size-5 publication-authors" style="color: black !important;">
-                <span class="author-block">
-                    <a href="https://georgewuzy.github.io/" style="color: #4A90E2 !important;">Zhiyuan Wu</a><sup>1</sup>, 
-                </span>
-                <span class="author-block">
-                    <a href="https://rolpotamias.github.io/" style="color: #4A90E2 !important;">Rolandos Alexandros Potamias</a><sup>2</sup>, 
-                </span>
-                <span class="author-block">
-                    <span style="color: black !important;">Xuyang Zhang</span><sup>1</sup>, 
-                </span>
-                <span class="author-block">
-                    <a href="https://zhongqunzhang.github.io/" style="color: #4A90E2 !important;">Zhongqun Zhang</a><sup>3</sup>, 
-                </span>
-                <span class="author-block">
-                    <a href="https://jiankangdeng.github.io/" style="color: #4A90E2 !important;">Jiankang Deng</a><sup>2</sup>, 
-                </span>
-                <span class="author-block">
-                    <a href="https://shanluo.github.io/" style="color: #4A90E2 !important;">Shan Luo</a><sup>1</sup>
-                </span>
-            </div>
-    
-            <div class="is-size-5 publication-authors" style="color: black !important;">
-                <span class="author-block"><sup>1</sup>King's College London,</span>
-                <span class="author-block"><sup>2</sup>Imperial College London,</span>
-                <span class="author-block"><sup>3</sup>Nankai University</span>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Publication Links Section -->
-    <section class="section" style="margin-bottom: -50px;"> <!-- 设置负边距 -->
-        <div class="container has-text-centered">
-            <div class="publication-links">
-                <span class="link-block">
-                    <a class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                            <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                    </a>
-                </span>
-                <span class="link-block">
-                    <a class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                            <i class="fab fa-github"></i>
-                        </span>
-                        <span>Code</span>
-                    </a>
-                </span>
-                <span class="link-block">
-                    <a class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                            <i class="fas fa-database"></i>
-                        </span>
-                        <span>Data</span>
-                    </a>
-                </span>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Demo Video Section -->
-    <section class="section">
-        <div class="container">
-            <div class="video-container">
-                <video controls width="70%">
-                    <source src="figs/demo.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Abstract Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="title is-3">Abstract</h2>
-            <p>Cross-embodiment dexterous grasp synthesis refers to adaptively generating and optimizing grasps for various robotic hands with different morphologies. This capability is crucial for achieving versatile robotic manipulation in diverse environments and requires substantial amounts of reliable and diverse grasp data for effective model training and robust generalization. However, existing approaches either rely on physics-based optimization that lacks human-like kinematic understanding or require extensive manual data collection processes that are limited to anthropomorphic structures. In this paper, we propose <strong>CEDex</strong>, a novel cross-embodiment dexterous grasp synthesis method that bridges human grasping kinematics and robot kinematics by aligning robot kinematic models with generated human-like contact representations. Given an object's point cloud and an arbitrary robotic hand model, CEDex first generates human-like contact representations using a Conditional Variational Auto-encoder pretrained on human contact data. It then performs kinematic human contact alignment through topological merging to consolidate multiple human hand parts into unified robot components, followed by a signed distance field-based grasp optimization with physics-aware constraints. Using CEDex, we construct the largest cross-embodiment grasp dataset to date, comprising <strong>500K</strong> objects across four gripper types with <strong>20M</strong> total grasps. Extensive experiments show that CEDex outperforms state-of-the-art approaches, and our dataset benefits cross-embodiment grasp learning with high-quality diverse grasps.</p>
-        </div>
-    </section>
+  <!-- Title Section（示例：1100px） -->
+  <section class="hero" style="margin-bottom: -60px;">
+    <div class="hero-body">
+      <div class="fixed-container centered" style="--w: 1100px;">
+        <h1 class="title">
+          CEDex: <span style="color: #C00000;">Cross-Embodiment</span> Dexterous Grasp Generation at Scale from <span style="color: #0070C0;">Human-like</span> <br> <span style="color: #0070C0;">Contact</span> Representations
+        </h1>
+      </div>
+    </div>
+  </section>
 
-    <!-- Pipeline Overview Section -->
-    <section class="section">
-        <div class="container has-text-centered">
-            <h2 class="title is-3">Pipeline Overview</h2>
-            <figure>
-                <img src="figs/pipeline.gif" alt="CEDex Pipeline" width="100%">        
-                <figcaption style="text-align: center;">
-                    The cross-embodiment dexterous grasp synthesis pipeline of our CEDex.
-                </figcaption>
-            </figure>
-        </div>
-    </section>
+  <!-- Authors Section（默认 800px） -->
+  <section class="section" style="margin-bottom: -60px;">
+    <div class="fixed-container centered">
+      <div class="is-size-5 publication-authors" style="color: black !important;">
+        <span class="author-block">
+          <a href="https://georgewuzy.github.io/" style="color: #4A90E2 !important;">Zhiyuan Wu</a><sup>1</sup>,
+        </span>
+        <span class="author-block">
+          <a href="https://rolpotamias.github.io/" style="color: #4A90E2 !important;">Rolandos Alexandros Potamias</a><sup>2</sup>,
+        </span>
+        <span class="author-block">
+          <span style="color: black !important;">Xuyang Zhang</span><sup>1</sup>,
+        </span>
+        <span class="author-block">
+          <a href="https://zhongqunzhang.github.io/" style="color: #4A90E2 !important;">Zhongqun Zhang</a><sup>3</sup>,
+        </span>
+        <span class="author-block">
+          <a href="https://jiankangdeng.github.io/" style="color: #4A90E2 !important;">Jiankang Deng</a><sup>2</sup>,
+        </span>
+        <span class="author-block">
+          <a href="https://shanluo.github.io/" style="color: #4A90E2 !important;">Shan Luo</a><sup>1</sup>
+        </span>
+      </div>
 
-    <!-- CEDex Dataset Section -->
-    <section class="section">
-        <div class="container has-text-centered">
-            <h2 class="title is-3">CEDex Dataset: 500K Objects and 20M Grasps</h2>
-            <ul>
-                <li>
-                    <figure>
-                        <img src="figs/contactdb_ycb.gif" alt="Real World Dataset" width="100%">
-                        <figcaption style="text-align: center;">
-                            Generated Grasps for Real-World Objects
-                        </figcaption>
-                    </figure>
-                </li>
-                <li>
-                    <figure>
-                        <img src="figs/objaverse.gif" alt="Synthesis Dataset" width="100%">
-                        <figcaption style="text-align: center;">
-                            Generated Grasps for Synthesis Objects
-                        </figcaption>
-                    </figure>
-                </li>
-            </ul>
-        </div>
-    </section>
+      <div class="is-size-5 publication-authors" style="color: black !important;">
+        <span class="author-block"><sup>1</sup>King's College London,</span>
+        <span class="author-block"><sup>2</sup>Imperial College London,</span>
+        <span class="author-block"><sup>3</sup>Nankai University</span>
+      </div>
+    </div>
+  </section>
 
-    <!-- Real-World Validation Section -->
-    <section class="section">
-        <div class="container has-text-centered">
-            <h2 class="title is-3">Real-World Validation</h2>
-            <figure>
-                <img src="figs/rw.gif" alt="Real World Validation" width="100%">
-            </figure>
-        </div>
-    </section>
+  <!-- Publication Links Section（默认 800px） -->
+  <section class="section" style="margin-bottom: -50px;">
+    <div class="fixed-container centered">
+      <div class="publication-links">
+        <span class="link-block">
+          <a class="external-link button is-normal is-rounded is-dark">
+            <span class="icon">
+              <i class="fas fa-file-pdf"></i>
+            </span>
+            <span>Paper</span>
+          </a>
+        </span>
+        <span class="link-block">
+          <a class="external-link button is-normal is-rounded is-dark">
+            <span class="icon">
+              <i class="fab fa-github"></i>
+            </span>
+            <span>Code</span>
+          </a>
+        </span>
+        <span class="link-block">
+          <a class="external-link button is-normal is-rounded is-dark">
+            <span class="icon">
+              <i class="fas fa-database"></i>
+            </span>
+            <span>Data</span>
+          </a>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo Video Section（示例：900px） -->
+  <section class="section">
+    <div class="fixed-container centered" style="--w: 900px;">
+      <div class="video-container">
+        <video controls style="width: 100%;">
+          <source src="figs/demo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- Abstract Section（默认 800px） -->
+  <section class="section">
+    <div class="fixed-container centered">
+      <h2 class="title is-3">Abstract</h2>
+      <p>
+        Cross-embodiment dexterous grasp synthesis refers to adaptively generating and optimizing grasps for various robotic hands with different morphologies. This capability is crucial for achieving versatile robotic manipulation in diverse environments and requires substantial amounts of reliable and diverse grasp data for effective model training and robust generalization. However, existing approaches either rely on physics-based optimization that lacks human-like kinematic understanding or require extensive manual data collection processes that are limited to anthropomorphic structures. In this paper, we propose <strong>CEDex</strong>, a novel cross-embodiment dexterous grasp synthesis method that bridges human grasping kinematics and robot kinematics by aligning robot kinematic models with generated human-like contact representations. Given an object's point cloud and an arbitrary robotic hand model, CEDex first generates human-like contact representations using a Conditional Variational Auto-encoder pretrained on human contact data. It then performs kinematic human contact alignment through topological merging to consolidate multiple human hand parts into unified robot components, followed by a signed distance field-based grasp optimization with physics-aware constraints. Using CEDex, we construct the largest cross-embodiment grasp dataset to date, comprising <strong>500K</strong> objects across four gripper types with <strong>20M</strong> total grasps. Extensive experiments show that CEDex outperforms state-of-the-art approaches, and our dataset benefits cross-embodiment grasp learning with high-quality diverse grasps.
+      </p>
+    </div>
+  </section>
+
+  <!-- Pipeline Overview Section（默认 800px） -->
+  <section class="section">
+    <div class="fixed-container centered">
+      <h2 class="title is-3">Pipeline Overview</h2>
+      <figure>
+        <img src="figs/pipeline.gif" alt="CEDex Pipeline">
+        <figcaption style="text-align: center;">
+          The cross-embodiment dexterous grasp synthesis pipeline of our CEDex.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- CEDex Dataset Section（默认 800px） -->
+  <section class="section">
+    <div class="fixed-container centered">
+      <h2 class="title is-3">CEDex Dataset: 500K Objects and 20M Grasps</h2>
+      <ul>
+        <li>
+          <figure>
+            <img src="figs/contactdb_ycb.gif" alt="Real World Dataset">
+            <figcaption style="text-align: center;">
+              Generated Grasps for Real-World Objects
+            </figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <img src="figs/objaverse.gif" alt="Synthesis Dataset">
+            <figcaption style="text-align: center;">
+              Generated Grasps for Synthesis Objects
+            </figcaption>
+          </figure>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Real-World Validation Section（默认 800px） -->
+  <section class="section">
+    <div class="fixed-container centered">
+      <h2 class="title is-3">Real-World Validation</h2>
+      <figure>
+        <img src="figs/rw.gif" alt="Real World Validation">
+      </figure>
+    </div>
+  </section>
 
 </body>
 </html>
