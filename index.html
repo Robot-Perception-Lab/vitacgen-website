@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CEDex: Cross-Embodiment Dexterous Grasp Generation at Scale from Human Contact Representations</title>
+  <title>ViTacGen: Robotic Pushing with Vision-to-Touch Generation</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -81,7 +81,7 @@
     <div class="hero-body">
       <div class="fixed-container centered" style="--w: 1100px;">
         <h1 class="title">
-          CEDex: <span style="color: #C00000;">Cross-Embodiment</span> Dexterous Grasp Generation at Scale from <span style="color: #0070C0;">Human-like</span> <br> <span style="color: #0070C0;">Contact</span> Representations
+          ViTacGen: <span style="color: #C00000;">Robotic Pushing</span> with <span style="color: #0070C0;">Vision-to-Touch</span> Generation
         </h1>
       </div>
     </div>
@@ -95,16 +95,19 @@
           <a href="https://georgewuzy.github.io/" style="color: #4A90E2 !important;">Zhiyuan Wu</a><sup>1</sup>,
         </span>
         <span class="author-block">
-          <a href="https://rolpotamias.github.io/" style="color: #4A90E2 !important;">Rolandos Alexandros Potamias</a><sup>2</sup>,
+          <a href="https://yijionglin.github.io/" style="color: #4A90E2 !important;">Yijiong Lin</a><sup>2</sup>,
+        </span>
+        <span class="author-block">
+          <a href="https://rancho-zhao.github.io/" style="color: #4A90E2 !important;">Yongqiang Zhao</a><sup>1</sup>,
         </span>
         <span class="author-block">
           <span style="color: black !important;">Xuyang Zhang</span><sup>1</sup>,
         </span>
         <span class="author-block">
-          <a href="https://zhongqunzhang.github.io/" style="color: #4A90E2 !important;">Zhongqun Zhang</a><sup>3</sup>,
+          <a href="https://zhuochenn.github.io/" style="color: #4A90E2 !important;">Zhuo Chen</a><sup>1</sup>,
         </span>
         <span class="author-block">
-          <a href="https://jiankangdeng.github.io/" style="color: #4A90E2 !important;">Jiankang Deng</a><sup>2</sup>,
+          <a href="https://lepora.com/" style="color: #4A90E2 !important;">Nathan Lepora</a><sup>2</sup>,
         </span>
         <span class="author-block">
           <a href="https://shanluo.github.io/" style="color: #4A90E2 !important;">Shan Luo</a><sup>1</sup>
@@ -113,8 +116,7 @@
 
       <div class="is-size-5 publication-authors" style="color: black !important;">
         <span class="author-block"><sup>1</sup>King's College London,</span>
-        <span class="author-block"><sup>2</sup>Imperial College London,</span>
-        <span class="author-block"><sup>3</sup>Nankai University</span>
+        <span class="author-block"><sup>2</sup>University of Bristol</span>
       </div>
     </div>
   </section>
@@ -124,7 +126,7 @@
     <div class="fixed-container centered">
       <div class="publication-links">
         <span class="link-block">
-          <a href="https://arxiv.org/pdf/2509.24661" class="external-link button is-normal is-rounded is-dark">
+          <a href="#" class="external-link button is-normal is-rounded is-dark">
             <span class="icon">
               <i class="fas fa-file-pdf"></i>
             </span>
@@ -132,7 +134,7 @@
           </a>
         </span>
         <span class="link-block">
-          <a href="https://github.com/GeorgeWuzy/CEDex-Grasp" class="external-link button is-normal is-rounded is-dark">
+          <a href="#" class="external-link button is-normal is-rounded is-dark">
             <span class="icon">
               <i class="fab fa-github"></i>
             </span>
@@ -140,7 +142,7 @@
           </a>
         </span>
         <span class="link-block">
-          <a href="https://github.com/GeorgeWuzy/CEDex-Grasp" class="external-link button is-normal is-rounded is-dark">
+          <a href="#" class="external-link button is-normal is-rounded is-dark">
             <span class="icon">
               <i class="fas fa-database"></i>
             </span>
@@ -168,7 +170,7 @@
     <div class="fixed-container centered">
       <h2 class="title is-3">Abstract</h2>
       <p>
-        Cross-embodiment dexterous grasp synthesis refers to adaptively generating and optimizing grasps for various robotic hands with different morphologies. This capability is crucial for achieving versatile robotic manipulation in diverse environments and requires substantial amounts of reliable and diverse grasp data for effective model training and robust generalization. However, existing approaches either rely on physics-based optimization that lacks human-like kinematic understanding or require extensive manual data collection processes that are limited to anthropomorphic structures. In this paper, we propose <strong>CEDex</strong>, a novel cross-embodiment dexterous grasp synthesis method that bridges human grasping kinematics and robot kinematics by aligning robot kinematic models with generated human-like contact representations. Given an object's point cloud and an arbitrary robotic hand model, CEDex first generates human-like contact representations using a Conditional Variational Auto-encoder pretrained on human contact data. It then performs kinematic human contact alignment through topological merging to consolidate multiple human hand parts into unified robot components, followed by a signed distance field-based grasp optimization with physics-aware constraints. Using CEDex, we construct the largest cross-embodiment grasp dataset to date, comprising <strong>500K</strong> objects across four gripper types with <strong>20M</strong> total grasps. Extensive experiments show that CEDex outperforms state-of-the-art approaches, and our dataset benefits cross-embodiment grasp learning with high-quality diverse grasps.
+        Robotic pushing is a fundamental manipulation task that requires tactile feedback to capture subtle contact forces and dynamics between the end-effector and the object. However, real tactile sensors often face hardware limitations such as high costs and fragility, and deployment challenges involving calibration and variations between different sensors, while vision-only policies struggle with satisfactory performance. Inspired by humans' ability to infer tactile states from vision, we propose ViTacGen, a novel robot manipulation framework designed for visual robotic pushing with vision-to-touch generation in reinforcement learning to eliminate the reliance on high-resolution real tactile sensors, enabling effective zero-shot deployment on visual-only robotic systems. Specifically, ViTacGen consists of an encoder-decoder vision-to-touch generation network that generates contact depth images, a standardized tactile representation, directly from visual image sequence, followed by a reinforcement learning policy that fuses visual-tactile data with contrastive learning based on visual and generated tactile observations. We validate the effectiveness of our approach in both simulation and real world experiments, demonstrating its superior performance and achieving a success rate of up to 86%.
       </p>
     </div>
   </section>
@@ -180,7 +182,7 @@
       <figure>
         <img src="figs/pipeline.gif" alt="CEDex Pipeline">
         <figcaption style="text-align: center;">
-          The cross-embodiment dexterous grasp synthesis pipeline of our CEDex.
+          The pipeline of our ViTacGen. 
         </figcaption>
       </figure>
     </div>
