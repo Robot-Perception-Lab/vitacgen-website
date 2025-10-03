@@ -1,4 +1,4 @@
-CEDex Website
+ViTacGen Website
 
 [https://georgewuzy.github.io/cedex-website/](https://georgewuzy.github.io/cedex-website/)
 
