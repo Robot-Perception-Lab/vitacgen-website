@@ -57,6 +57,11 @@
       font-size: 1em;
       text-align: justify;
     }
+    .caption-style {
+      text-align: center; /* Center the text */
+      font-weight: bold;  /* Bold text */
+      color: blue;        /* Blue text color */
+    }
     img, video {
       display: block;
       max-width: 100%;
@@ -192,7 +197,7 @@
       <h2 class="title is-3">Simulation Results</h2>
       <figure>
         <img src="figs/sim.gif" alt="Simulation Results">
-        <figcaption>We build our simulation environment based on Tactile Gym 2 <a href="https://github.com/ac-93/tactile_gym">here</a>.</figcaption>
+        <figcaption>We build our simulation environment based on <a href="https://github.com/ac-93/tactile_gym">Tactile Gym 2</a>.</figcaption>
       </figure>
     </div>
   </section>
@@ -210,17 +215,17 @@
 
   <!-- Real-World Validation Section（默认 800px） -->
   <section class="section">
-    <div class="fixed-container centered">
-      <h2 class="title is-3">Real-World Validation</h2>
-      <figure>
-        <img src="figs/rw.gif" alt="Seen Objects">
-        <figcaption>Seen Objects</figcaption>
-      </figure>
-      <figure>
-        <img src="figs/unseen.gif" alt="Unseen Objects">
-        <figcaption>Unseen Objects</figcaption>
-      </figure>
-    </div>
+      <div class="fixed-container centered">
+        <h2 class="title is-3">Real-World Validation</h2>
+        <figure>
+          <img src="figs/rw.gif" alt="Seen Objects">
+          <figcaption class="caption-style">Seen Objects</figcaption>
+        </figure>
+        <figure>
+          <img src="figs/unseen.gif" alt="Unseen Objects">
+          <figcaption class="caption-style">Unseen Objects</figcaption>
+        </figure>
+      </div>
   </section>
 
   <!-- Quantitative Results Section（默认 800px） -->
